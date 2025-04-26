@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container mx-auto px-4 py-20 max-w-3xl md:max-w-5xl">
+  <h1 class="text-4xl font-extrabold text-center mb-6">Return Policy</h1>
+
+  <ol class="list-decimal pl-6 space-y-6 text-lg leading-relaxed">
+    <li>
+      <div class="font-bold text-2xl text-indigo-600">Digital Services (e.g., Horoscope Readings, Consultations)</div>
+      <ul class="list-inside pl-4 mt-2 space-y-2">
+        <li class="text-gray-700"><span class="font-semibold">No Refunds:</span> Since astrology readings and reports are personalized, they are non-refundable once delivered.</li>
+        <li class="text-gray-700"><span class="font-semibold">Rescheduling:</span> Allow rescheduling for live consultations if requested at least 24 hours in advance.</li>
+        <li class="text-gray-700"><span class="font-semibold">Dissatisfaction Clause:</span> Offer a revision or alternative reading if a customer is unhappy (optional).</li>
+      </ul>
+    </li>
+    <li>
+      <div class="font-bold text-2xl text-green-600">Physical Products (e.g., Gemstones, Books, Astrology Tools)</div>
+      <ul class="list-inside pl-4 mt-2 space-y-2">
+        <li class="text-gray-700"><span class="font-semibold">Return Window:</span> 7–14 days return policy if the item is unused and in original condition.</li>
+        <li class="text-gray-700"><span class="font-semibold">Refund Method:</span> Refunds to the original payment method or store credit.</li>
+        <li class="text-gray-700"><span class="font-semibold">Shipping Costs:</span> Customer may need to cover return shipping costs unless the item is defective.</li>
+      </ul>
+    </li>
+    <li>
+      <div class="font-bold text-2xl text-teal-600">Memberships & Subscriptions</div>
+      <ul class="list-inside pl-4 mt-2 space-y-2">
+        <li class="text-gray-700"><span class="font-semibold">Cancellation Policy:</span> Users can cancel anytime, but refunds are not issued for the current billing cycle.</li>
+        <li class="text-gray-700"><span class="font-semibold">Trial Period:</span> Consider offering a free trial to let users test the service before subscribing.</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+{% endblock %}

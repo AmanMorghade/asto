@@ -1,0 +1,14 @@
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore all .log files
+*.log
+
+# Ignore Python bytecode files
+*.pyc
+
+# Ignore all text files in the /docs folder
+/docs/*.txt
+
+landing/testing.html

@@ -1,0 +1,51 @@
+<!-- Swiper.js CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<section id="blog" class="py-12 text-center fade-down bg-gray-100">
+  <div>
+    <h2 class="text-4xl text-blue-900 font-bold">Blog & Articles</h2>
+
+    <!-- Swiper Container -->
+    <div class="swiper mySwiper mt-6 px-10">
+      <div class="swiper-wrapper">
+        {% for tt in blogg %}
+        <div class="swiper-slide">
+          <a href="{% url 'detail' tt.id %}" class="block">
+            <div class="blog-item bg-white shadow-lg rounded-lg overflow-hidden max-w-xs sm:max-w-sm mx-auto transform transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-blue-100">
+              <img src="{{ tt.image.url }}" alt="Zodiac Insights" class="w-full h-48 object-cover"/>
+              <div class="p-4">
+                <h3 class="text-xl font-bold text-blue-900">{{ tt.title }}</h3>
+                <p class="text-gray-700 text-sm">{{ tt.info|truncatewords:10|safe }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination & Navigation -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: { delay: 3000 },
+      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      breakpoints: {
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
+  });
+</script>

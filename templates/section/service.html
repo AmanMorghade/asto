@@ -1,0 +1,51 @@
+<section class="py-12 text-center fade-down" id="service">
+    <h2 class="text-4xl text-blue-900 font-bold">Remedies</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-6 px-6">
+
+      <!-- Gemstones Card -->
+      <a href="{% url 'product_list' 'gemstone' %}">
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-xs sm:max-w-sm mx-auto transform transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-blue-100">
+        <img src="/media/gemstone.jpg" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="text-xl font-bold text-blue-900">Gemstones & Crystal</h3>
+          <p class="text-gray-700 text-sm">
+            Gemstones are believed to carry cosmic energies that can influence a
+            person’s life based on Vedic astrology.
+          </p>
+        </div>
+      </div>
+    </a>
+  
+      <!-- Rudraksh Card -->
+      <a href="{% url 'product_list' 'rudraksh' %}">
+      <div
+        class="bg-white shadow-lg rounded-lg overflow-hidden max-w-xs sm:max-w-sm mx-auto transform transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-blue-100">
+        <img src="/media/rudraksh.jfif" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="text-xl font-bold text-blue-900">Rudraksh</h3>
+          <p class="text-gray-700 text-sm">
+            Rudraksh is a seed from the Rudraksha tree and is considered sacred
+            in Hinduism.
+          </p>
+        </div>
+      </div>
+    </a>
+  
+      <!-- Yantras Card -->
+      <a href="{% url 'product_list' 'yantras' %}">
+      <div
+        class="bg-white shadow-lg rounded-lg overflow-hidden max-w-xs sm:max-w-sm mx-auto transform transition-all hover:-translate-y-2 hover:shadow-xl hover:bg-blue-100">
+        <img src="/media/yantra.jfif" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="text-xl font-bold text-blue-900">Yantras</h3>
+          <p class="text-gray-700 text-sm">
+            A Yantra is a mystical diagram used in Hindu and tantric traditions
+            for meditation, manifestation, and protection.
+          </p>
+        </div>
+      </div>
+    </a>
+    </div>
+ 
+  </section>
+  

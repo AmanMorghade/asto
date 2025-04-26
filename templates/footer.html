@@ -1,0 +1,68 @@
+<!-- Footer -->
+<footer class="bg-gray-700 text-white py-5">
+  <div class="container mx-auto px-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center md:text-left">
+      <!-- About Us -->
+      <div>
+        <h5 class="text-xl font-semibold mb-3">About Us</h5>
+        <div class="flex justify-center md:justify-start">
+          <img src="/media/logo.png" alt="" class="w-16">
+        </div>
+        <p class="font-bold">Aryaaman</p>
+        <p class="flex items-center justify-center md:justify-start">
+          <i class="fas fa-map-marker-alt mr-2"></i> Indra Nagar, Nagpur
+        </p>
+        <p class="flex items-center justify-center md:justify-start">
+          <i class="fas fa-phone-alt mr-2"></i> +123 456 7890
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h5 class="text-xl font-semibold mb-3">Quick Links</h5>
+        <ul class="space-y-2">
+          <li><a href="{% url 'privacy_policy' %}" class="hover:text-gray-400">Privacy Policy</a></li>
+          <li><a href="{% url 'return_policy' %}" class="hover:text-gray-400">Return Policy</a></li>
+          <li><a href="{% url 'terms_condition' %}" class="hover:text-gray-400">Terms & Conditions</a></li>
+          <li><a href="#" class="hover:text-gray-400">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Follow Us -->
+      <div>
+        <h5 class="text-xl font-semibold mb-3">Follow Us</h5>
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="flex items-center justify-center md:justify-start hover:text-gray-400">
+              <i class="fab fa-facebook mr-2"></i> Facebook
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-center md:justify-start hover:text-gray-400">
+              <i class="fab fa-twitter mr-2"></i> Twitter
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-center md:justify-start hover:text-gray-400">
+              <i class="fab fa-instagram mr-2"></i> Instagram
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-center md:justify-start hover:text-gray-400">
+              <i class="fab fa-whatsapp mr-2"></i> Whatsapp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="border-gray-500 my-5" />
+
+    <p class="text-center text-sm">
+      &copy; 2025 Ashu Astrology. All Rights Reserved.
+    </p>
+  </div>
+</footer>
+
+<!-- FontAwesome Icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>

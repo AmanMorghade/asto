@@ -1,0 +1,75 @@
+{% comment %} {% load static tailwind_tags %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astrology Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    {% comment %} {% tailwind_css %} {% endcomment %}
+  </head>
+  <body class="bg-blue-50 text-gray-800">
+    {% csrf_token %}
+    <!-- Navigation -->
+    <nav class="bg-gray-800/80 bg-opacity-80 fixed w-full top-0 left-0 z-50">
+      <div class="flex items-center justify-between px-4 lg:container lg:mx-auto">
+        <!-- Logo -->
+        <img src="/media/logo.png" alt="logo" class="w-16" />
+
+        <!-- Menu Button (Visible on Mobile) -->
+        <button id="menu-btn" class="text-white text-3xl focus:outline-none lg:hidden">
+          ☰
+        </button>
+
+        <!-- Desktop Navigation Links (Centered) -->
+        <ul class="hidden lg:flex lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 space-x-6 text-white font-bold">
+          <li><a href="#home" class="hover:text-yellow-400">Home</a></li>
+          <li><a href="#about" class="hover:text-yellow-400">About</a></li>
+          <li><a href="#service" class="hover:text-yellow-400">Services</a></li>
+          <li><a href="#blog" class="hover:text-yellow-400">Blog</a></li>
+          <li><a href="#portfolio" class="hover:text-yellow-400">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <!-- Mobile Menu (Initially Hidden) -->
+      <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-gray-800 text-white flex flex-col space-y-4 p-4 lg:hidden">
+        <a href="#home" class="block hover:text-yellow-400 menu-link">Home</a>
+        <a href="#about" class="block hover:text-yellow-400 menu-link">About</a>
+        <a href="#service" class="block hover:text-yellow-400 menu-link">Services</a>
+        <a href="#blog" class="block hover:text-yellow-400 menu-link">Blog</a>
+        <a href="#portfolio" class="block hover:text-yellow-400 menu-link">Portfolio</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    {% block content %}
+    <main></main>
+    {% endblock %}
+
+    <!-- WhatsApp Floating Button -->
+    <a href="">
+      <img src="/media/whatsapp.png" alt="whatsapp" class="fixed bottom-10 left-5 w-10 z-50 sm:w-14 md:w-14 lg:w-16">
+    </a>
+
+    {% include "footer.html" %}
+
+    <script>
+      let menuBtn = document.getElementById("menu-btn");
+      let mobileMenu = document.getElementById("mobile-menu");
+      let menuLinks = document.querySelectorAll(".menu-link");
+
+      // Toggle menu on button click
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close menu when a link is clicked
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

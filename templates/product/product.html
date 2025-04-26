@@ -1,0 +1,95 @@
+
+
+
+{% load static %}
+{% csrf_token %}
+<link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<body class="bg-blue-50 p-5 h-screen">
+<!-- Cart Button -->
+{% comment %} <div class="fixed top-5 right-5 bg-blue-600 text-white lg:text-xl sm:text-3xl p-3 rounded-full cursor-pointer shadow-lg z-50" onclick="showCart()">
+  <span id="cart-count" ... class="nav-cart-count ...">{{ cart_count }}</span>
+  <span class="nav-cart-icon nav-sprite"></span>
+</div> {% endcomment %}
+
+
+<div class="fixed top-5 right-5 bg-blue-600 text-white  lg:text-xl sm:text-3xl p-3 rounded-full cursor-pointer shadow-lg z-50" onclick="toggleModal()">
+  🛒 <span id="cart-count">{{ cart_count }}</span>
+</div>
+
+
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+  <div class="bg-white rounded-lg shadow-lg w-[70%] md:w-[70%] lg:h-5/6 md:h-1/2 sm:h-1/2 relative">
+      <button onclick="toggleModal()" class="absolute top-2 right-2 text-gray-500 hover:text-black text-xl font-bold">&times;</button>
+      <iframe src="{% url 'cart_list' %}" class="w-full h-full rounded-b-lg border-none"></iframe>
+  </div>
+</div> 
+
+<!-- Search Bar -->
+<div class="px-4 mb-6 mt-6">
+  <input type="text" id="search-bar" placeholder="Search for products..."
+    class="p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 w-5/12 lg:text-base sm:text-3xl"
+    onkeyup="searchProducts()">
+</div>
+
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4" id="product-grid">
+  {% for product in products %}
+  <div
+    class="product-card bg-white border border-gray-300 rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:scale-[1.02] flex flex-col p-1">
+
+    <!-- Product Image -->
+    <div class="relative">
+      <img src="{{ product.image.url }}" alt="{{ product.name }}"
+        class="object-cover lg:h-40 sm:h-52 w-auto mx-auto block" />
+      <div
+        class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 lg:text-sm sm:text-2xl font-semibold rounded shadow-md">
+        ₹{{ product.price }}
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="p-5 flex flex-col text-center">
+      <h3 class="lg:text-lg sm:text-3xl font-bold text-blue-900 mb-2">{{ product.name }}</h3>
+      <p class="lg:text-base sm:text-2xl text-gray-600 mb-4">{{ product.description|truncatewords:15 }}</p>
+
+      <!-- Add to Cart Button -->
+      <a href="{% url 'cart' product.id %}">
+        <button
+          class="w-full bg-blue-600 text-white px-5 py-3 rounded-lg lg:text-base sm:text-2xl font-semibold transition-transform duration-200 hover:scale-105 hover:bg-blue-800">
+          🛒 Add to Cart
+        </button>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</body>
+<script>
+  function toggleModal() {
+    const modal = document.getElementById('modal');
+    modal.classList.toggle('hidden');
+  }
+</script>
+
+{% comment %} <script>
+  function getCSRFToken() {
+      return document.querySelector('[name=csrfmiddlewaretoken]').value;
+  }
+  
+  function addToCart(productId) {
+      fetch(`/cart/${productId}/`, {
+          method: 'POST',
+          headers: {
+              'X-CSRFToken': getCSRFToken(),
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({})
+      })
+      .then(response => response.json())
+      .then(data => {
+          document.getElementById("cart-message").innerText = data.message;
+      });
+  }
+  </script> {% endcomment %}
